@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question List</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Internal CSS */
+        .error {
+            color: red;
+        }
+        /* Additional custom styles */
+        body {
+            padding: 20px;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .question-list li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Question List</h1>
+        <ul class="list-group question-list">
+            {% for questions in question %}
+                <li class="list-group-item">{{ questions.question }}</li>
+                <li class="list-group-item"><a href="/questionUpdate/{{ questions.id }}" class="btn btn-primary">Add Feedback</a></li>
+                
+            {% endfor %}
+        </ul>
+        <center>
+        <li class="list-group-item"><a href="/steacher/" class="btn btn-primary">Back</a></li>
+    </center>
+    </div>
+</body>
+</html>

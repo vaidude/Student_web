@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        body {
+            background-image: url("{% static 'images/img-8.png' %}");
+            
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            height: 100vh;
+            width: auto;
+        
+        }
+    </style>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'css/register.css' %}">
+        <title>Register</title>
+    </head>
+    
+    <body>
+       
+        <center>
+        <div class="reg">
+            <font size="+3" style="color: white;"> PROFILE EDIT FORM</font>
+            <form action="/profileupdate/" method="post">
+                {% csrf_token %}
+                <font style="color: rgb(255, 255, 255);">
+                    <br><br>
+                <span>StudentName</span>&nbsp&nbsp&nbsp&nbsp
+                <input type="text" value="{{StudentName}}" name="Student_Name" id="ip1">
+                <br><br>
+                <span>Email</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <input type="email" value="{{Email}}" name="Student_Email" id="ip1">
+                <br><br>
+                <span>RollNumber</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <input type="text" value="{{RollNumber}}" name="Roll_Number" id="ip1">
+                <br><br>
+                <span>Branch</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <input type="text" value="{{Branch}}" name="Branch" id="ip1">
+                <br><br>
+                <!--<span>Username</span>
+                <input type="text" placeholder="Username" name="Username">
+                <br><br> -->
+                <span>Password</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <input type="password" value="{{Password}}" name="Password" id="ip1">
+                <br><br></font>
+                <br><br>
+                <input type="submit" value="Update" id="ip2">
+            </center>
+            </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        body {
+            background-image: url("{% static 'images/img-8.png' %}");
+            
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            height: 100vh;
+            width: auto;
+        
+        }
+    </style>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <center>
+            <font size="+2" style="color: white;"><h2><u>Students</u></h2>
+        <table border="1">
+            <tr>
+                <th>student_name</th>
+                <th>roll_no</th>
+                <th>email</th>
+                <th>delete</th>
+            </tr>
+            {% for student in students %}
+            <tr>
+                <td>{{ student.StudentName }}</td>
+                <td>{{ student.RollNumber }}</td>
+                <td>{{ student.Email }}</td>
+                <td><a href="/delete_record/{{student.id}}">delete</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+        </font>
+        </center>
+    </body>
+</html>

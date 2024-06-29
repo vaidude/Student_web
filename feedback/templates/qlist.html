@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question List</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Internal CSS */
+        .error {
+            color: red;
+        }
+        /* Additional custom styles */
+        body {
+            padding: 20px;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .question-list li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Question List</h1>
+        <ul class="list-group question-list">
+            {% for question in question %}
+                <li class="list-group-item">{{ question.question }}</li>
+                <li class="list-group-item">
+                <a href="/pie_chart/{{question.id}}" class="btn btn-primary">View Pie Chart</a>
+                <a href="/del-feedback/{{question.id}}" class="btn btn-danger">Delete FeedBack</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

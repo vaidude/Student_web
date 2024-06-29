@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <body bgcolor="lightblue">
+            <div>
+                <table>
+                    <center>
+            <form action="/dltbyname/"method="POST">
+                {% csrf_token %}
+                <input type="text"class="form-control"placeholder="Enter Name"
+                name="cname"><br><br>
+                <button type="submit">DELETE</button>
+            </form>
+            </center>
+            </table>
+            </div>
+        </body>
+    </head>
+</html>

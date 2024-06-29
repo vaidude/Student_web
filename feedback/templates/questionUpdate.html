@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Feedback</title>
+</head>
+<body>
+    <h1>Add Feedback</h1>
+    <form method="post">
+        {% csrf_token %}
+        <h5>{{ question.question }}</h5> <!-- Display the question text -->
+        <label for="options">Select Feedback:</label><br>
+        <select id="options" name="options">
+            <option value="good">Good</option>
+            <option value="average">Average</option>
+            <option value="poor">Poor</option>
+        </select><br><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

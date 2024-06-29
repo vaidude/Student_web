@@ -1,0 +1,56 @@
+def Complaint(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        complaint_text = request.POST.get('complaint')
+
+        # Create a new instance of the Complaint model and save it to the database
+        new_complaint = complaint(Name=name, email=email, Complaint=complaint_text)
+        new_complaint.save()
+
+
+        # Optionally, you can perform additional processing here
+        
+        return render(request, 'home.html')
+    else:
+        return render(request, 'complaint.html')
+import smtplib
+from email.mime.text import MIMEText
+from django.shortcuts import render
+from .models import complaint, hod  # Assuming the models are imported from your models file
+
+def send(request, complaint_id):
+    # Retrieve the complaint object with the given ID
+    complaint_obj = complaint.objects.get(id=complaint_id)
+
+    # Update the is_accepted field of the complaint to True
+    complaint_obj.is_accepted = True
+    complaint_obj.save()
+
+    # Retrieve the HOD email (assuming there's only one HOD for simplicity)
+    hod_email = hod.objects.first().email  # Adjust this according to your actual HOD retrieval logic
+
+    # Prepare the email message
+    subject = 'Complaint Accepted'
+    message = f'Hello HOD,\n\nA complaint has been submitted by a student and is now accepted.\n\nName: {complaint_obj.Name}\nEmail: {complaint_obj.email}\nComplaint: {complaint_obj.Complaint}\n\nThank you.'
+
+    # Sender and receiver email addresses
+    sender_email = 'nefsal003@gmail.com'
+    receiver_email = hod_email
+
+    # Create MIMEText object
+    msg = MIMEText(message)
+    msg['Subject'] = subject
+    msg['From'] = sender_email
+    msg['To'] = receiver_email
+
+    # Send the email
+    try:
+        with smtplib.SMTP('smtp.gmail.com', 587) as s:
+            s.starttls()
+            s.login("nefsal003@gmail.com", "htxalvzrrkxupspv")
+            s.sendmail(sender_email, receiver_email, msg.as_string())
+        return render(request, 'adminhome.html')
+    except Exception as e:
+        # Handle any exceptions (e.g., SMTP authentication error, connection error)
+        return render(request, 'error.html', {'error_message': str(e)})

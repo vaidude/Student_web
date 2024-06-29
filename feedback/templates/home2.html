@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        body {
+            background-image: url("{% static 'images/image3.jpg' %}");
+            
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            height: 100vh;
+            width: auto;
+        
+        }
+    </style>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'css/home2.css' %}">
+        <title>Home</title>
+    </head>
+    <body>
+        <center>
+            <br><br>
+            <font size="+3" style="color: rgb(0, 0, 0);">MANAGE</font>
+        <div class="reg">
+            <form action="/home2/" method="post">
+                {% csrf_token %}
+                <font style="color: rgb(255, 255, 255);">
+                <br><br>
+                <br><br>
+                <a class="nav-link" href="/profile2"><input type="button" value="Profile" id="ip2"><br><br></a>
+                <a class="nav-link" href="/mq"><input type="button" value="Manage Questions" id="ip2"><br><br></a>
+                <a class="nav-link" href="/listcomplaints"><input type="button" value="Manage Complaints" id="ip2"><br><br></a>
+                <a class="nav-link" href="/qlist"><input type="button" value="Manage Feedbacks" id="ip2"><br><br></a>
+                <a class="nav-link" href="/teacher_list"><input type="button" value="Manage Teachers" id="ip2"><br><br></a>
+                <a class="nav-link" href="/student_list"><input type="button" value="Manage Students" id="ip2"></a>
+                <li class="nav-item active">
+                    
+                 </li>
+            </center>
+            </form>
+        </div>
+    </body>
+</html>

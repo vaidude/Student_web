@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        body {
+            background-image: url("{% static 'images/image3.jpg' %}");
+            
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            height: 100vh;
+            width: auto;
+        
+        }
+    </style>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'css/register2.css' %}">
+        <title>Register</title>
+    </head>
+    <body>
+        <center>
+        <div class="reg"><br><br>
+            <font size="+3" style="color: rgb(0, 0, 0);"> REGISTER </font>
+            <form action="/register2/" method="post">
+                {% csrf_token %}
+                <font size="+1" style="color: rgb(114, 110, 110);">
+                    <br><br>
+                <span>Name</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <input type="text" placeholder="" name="Name" id="ip1">
+                <br><br>
+                <span>Email</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <input type="email" placeholder="" name="Email" id="ip1">
+                <br><br>
+                <span>Department</span>&nbsp&nbsp&nbsp&nbsp
+                <input type="text" placeholder="" name="Department" id="ip1">
+                <br><br>
+                <!-- <span>Course</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <input type="text" placeholder="" name="Course" id="ip1">
+                <br><br> -->
+                <!-- <span>Username</span>
+                <input type="text" placeholder="Username" name="Username">
+                <br><br> -->
+                <span>Password</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <input type="password" placeholder="" name="password" id="ip1">
+                <br><br>
+                <input type="submit" value="Submit" id="ip2">
+            </center>
+            </form>
+        </div>
+    </body>
+</html>

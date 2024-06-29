@@ -1,0 +1,22 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1><u>DELETE RECORD</u></h1>
+        <table border="1">
+            <tr>
+                <th>student_name</th>
+                <th>roll_no</th>
+                <th>email</th>
+            </tr>
+            {% for student in students %}
+            <tr>
+                <td>{{ student.StudentName }}</td>
+                <td>{{ student.RollNumber }}</td>
+                <td>{{ student.Email }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>

@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        body {
+            background-image: url("{% static 'images/image3.jpg' %}");
+            
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            height: 100vh;
+            width: auto;
+        
+        }
+    </style>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'css/home1.css' %}">
+        <title>Home</title>
+    </head>
+    <body>
+        <center>
+            <br><br>
+            <font size="+3" style="color: rgb(0, 0, 0);"> LECTURER REVIEW</font>
+        <div class="reg">
+            <form action="/home1/" method="post">
+                {% csrf_token %}
+                <font style="color: rgb(255, 255, 255);">
+                <br><br>
+                <br><br>
+                <a class="nav-link" href="/profile1"><input type="button" value="Profile" id="ip2"><br><br></a>
+                <a class="nav-link" href="/qlist"><input type="button" value="View feedback" id="ip2"><br><br></a>
+                <!-- <a class="nav-link" href="/un"><input type="button" value="Upload notifications" id="ip2"><br><br></a> -->
+                <a class="nav-link" href="/complaint"><input type="button" value="Complaint" id="ip2"><br><br></a>
+                <!-- <input type="button" value="profile1" id="ip2"> -->
+                <li class="nav-item active">
+                    
+                 </li>
+            </center>
+            </form>
+        </div>
+    </body>
+</html>

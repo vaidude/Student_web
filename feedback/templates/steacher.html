@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teachers</title>
+    <style>
+        body {
+            
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            height: 100vh;
+            width: auto;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        table {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-collapse: collapse;
+            width: 80%;
+            max-width: 800px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #007bff;
+            color: rgb(5, 0, 0);
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #ddd;
+        }
+        .feedback-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .feedback-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <font size="+2" style="color: rgb(4, 2, 12);">
+            <h2><u>Teachers</u></h2>
+            <table border="1">
+                <tr>
+                    <th>Teacher Name</th>
+                    <th>Course</th>
+                    <th>Email</th>
+                    <th>Feedback</th>
+                </tr>
+                {% for teach in tea %}
+                <tr>
+                    <td>{{ teach.Name }}</td>
+                    <td>{{ teach.Course }}</td>
+                    <td>{{ teach.Email }}</td>
+                    <td><a class="feedback-btn" href="/QuestionList/">Feedback</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+             <center>
+                <button>
+        <a href="/home1/" class="btn btn-primary">Back</a></button>
+    </center>
+        </font>
+    </center>
+</body>
+</html>
